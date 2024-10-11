@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 100%;
+   height: 100%;
+   background-color: #387478;
+   padding: .5rem 5rem;
+}
+.logo h1{
+    color: #E2F1E7;
+    font-size: 2.5rem;
+}
+.nav .links{
+    display: flex;
+    gap: 2rem;
+    text-transform: capitalize;
+}
+.links a {
+    text-decoration: none;
+    color: #E2F1E7;
+    font-size: 1.5rem;
+}
+.signin{
+    color: #E2F1E7;
+}
