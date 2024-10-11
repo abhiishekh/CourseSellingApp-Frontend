@@ -16,7 +16,7 @@ const Nav = () => {
             <a href="#">About</a>
         </div>
         <div className="signin">
-            <h3>Singin</h3>
+            <button>Signin</button>
         </div>
       </div>
     </>
