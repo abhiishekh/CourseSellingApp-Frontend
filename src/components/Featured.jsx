@@ -1,40 +1,58 @@
-import React from 'react'
-import '../styles/featured.css'
-import CourseCard from './CourseCard'
+import React, { useEffect, useState } from 'react';
+import '../styles/featured.css';
+import CourseCard from './CourseCard';
+import cardImg from '../assets/course3.jpg'
+
 const Featured = () => {
-    const arr = {
-        title:"webdev",
-        desc:"this is the webdev course where you will learn about coding from 0 to advance",
-        price:"$19.00",
-    }
+    const [data, setData] = useState([]);
 
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/api/v1/all-courses');
 
-  return (
-    <>
-      <div className="featured-container">
-        <div className="heading">
-            <h1>Featured Courses</h1>
-        </div>
-        <div className="cards">
+                // Check if the response is okay before proceeding
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch data: ${response.status}`);
+                }
 
-        <CourseCard 
-        title={arr.title}
-        desc={arr.desc}
-        price={arr.price}
+                const result = await response.json();
+                console.log(result.response)
+                setData(result.response);
+            } catch (err) {
+                console.error(err);
+            }
+        };
 
-        />
-        <CourseCard 
-        title='web3'
-        desc="this is the web3 course where you will learn about blockchain from 0 to advance"
-        price="$39.00"
+        fetchData();
+    }, []);
 
-        />
+    console.log(data);
 
-        
-        </div>
-      </div>
-    </>
-  )
-}
+    return (
+        <>
+            <div className="featured-container">
+                <div className="heading">
+                    <h1>Featured Courses</h1>
+                </div>
+                <div className="cards">
+                    {data.length > 0 ? (
+                        data.map((msg, _id) => (
+                            <CourseCard
+                                key={_id}
+                                title={msg.title}
+                                desc={msg.description}
+                                price={msg.price}
+                                image={cardImg}
+                            />
+                        ))
+                    ) : (
+                        <p>Loading courses...</p>
+                    )}
+                </div>
+            </div>
+        </>
+    );
+};
 
-export default Featured
+export default Featured;

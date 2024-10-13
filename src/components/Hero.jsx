@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/hero.css'
 import heroImg from '../assets/hero.jpg'
+import Featured from './Featured'
 const Hero = () => {
   return (
     <>
@@ -11,6 +12,7 @@ const Hero = () => {
         </a>
         
       </div>
+      <Featured/>
     </>
   )
 }

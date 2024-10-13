@@ -1,12 +1,15 @@
 import React from 'react'
 import '../styles/nav.css'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
 const Nav = () => {
+  
 
   return (
     <>
       <div className="nav">
         <div className="logo">
-            <h1>Coding Schoole</h1>
+            <h1>Coding School</h1>
            
         </div>
         <div className="links">
@@ -16,7 +19,7 @@ const Nav = () => {
             <a href="#">About</a>
         </div>
         <div className="signin">
-            <button>Signin</button>
+           <Link to='/Signup'><button>Signup</button></Link> 
         </div>
       </div>
     </>
