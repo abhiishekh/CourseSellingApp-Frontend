@@ -5,15 +5,16 @@ import axios from 'axios';
 
 const Signup = () => {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({          
     username: '',
     email: '',
     password: '',
+    checkbox:false
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name,type, checked, value } = e.target;
+    setFormData({ ...formData, [name]: type === 'checkbox'? checked:value });
   };
 
   const handleSubmit = async (e) => {
@@ -24,6 +25,7 @@ const Signup = () => {
         username: formData.username,
         email: formData.email,
         password: formData.password,
+        isCreator:formData.checkbox
       });
 
       if (response.status === 200) {
@@ -72,6 +74,16 @@ const Signup = () => {
             value={formData.password}
             onChange={handleChange}
             required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="checkbox">Are you a creator</label>
+          <input
+            type="Checkbox"
+            id="checkbox"
+            name="checkbox"
+            value={formData.checkbox}
+            onChange={handleChange}
           />
         </div>
         <button type="submit">Sign Up</button>

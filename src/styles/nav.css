@@ -27,6 +27,11 @@
     color: #E2F1E7;
     font-size: 1.5rem;
 }
+.btns{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
 .signin{
     color: #E2F1E7;
 }

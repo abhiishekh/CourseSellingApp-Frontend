@@ -3,6 +3,8 @@ import '../styles/hero.css'
 import heroImg from '../assets/hero.jpg'
 import Featured from './Featured'
 const Hero = () => {
+  const token = localStorage.getItem("token")
+  // console.log(token)
   return (
     <>
       <div className="container">

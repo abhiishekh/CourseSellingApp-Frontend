@@ -2,9 +2,10 @@ import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../styles/signup.css'
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 const Signin = () => {
     const navigate = useNavigate();
-  const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({
     username: '',
     email: '',
     password: '',
@@ -24,8 +25,18 @@ const Signin = () => {
         password: formData.password,
       });
 
+      console.log(response.data)
+   
       if (response.status === 200) {
+        const token = response.data.token;
+        const isCreator = response.data.isCreator; // Correctly accessing isCreator
+        console.log("Is Creator:", isCreator);
+        // console.log(isCreator)
+        localStorage.setItem('token',token)
+        localStorage.setItem('isCreator',isCreator)
+  
         console.log("Signin successful:", response.data);
+
         navigate('/'); // Navigate on successful signup
       } else {
         console.log("Data not submitted");
@@ -61,6 +72,7 @@ const Signin = () => {
         />
       </div>
       <button type="submit">Sign In</button>
+      <p style={{color:"black", marginTop:'1rem'}}>Don't have an I'd <Link to='/signup' style={{textDecoration:'none'}}>Signup</Link></p>
     </form>
   </div>
   )

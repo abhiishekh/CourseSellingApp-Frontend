@@ -39,7 +39,7 @@ const Featured = () => {
                     {data.length > 0 ? (
                         data.map((msg, _id) => (
                             <CourseCard
-                                key={_id}
+                                key={msg._id}
                                 title={msg.title}
                                 desc={msg.description}
                                 price={msg.price}
