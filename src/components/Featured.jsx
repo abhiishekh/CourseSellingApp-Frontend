@@ -9,7 +9,7 @@ const Featured = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/v1/all-courses');
+                const response = await fetch('http://localhost:3000/api/v1/featured-courses');
 
                 // Check if the response is okay before proceeding
                 if (!response.ok) {
@@ -37,9 +37,10 @@ const Featured = () => {
                 </div>
                 <div className="cards">
                     {data.length > 0 ? (
-                        data.map((msg, _id) => (
+                        data.map((msg,) => (
                             <CourseCard
                                 key={msg._id}
+                                courseId={msg._id}
                                 title={msg.title}
                                 desc={msg.description}
                                 price={msg.price}

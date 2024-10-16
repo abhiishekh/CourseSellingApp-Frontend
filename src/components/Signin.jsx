@@ -24,8 +24,6 @@ const Signin = () => {
         email: formData.email,
         password: formData.password,
       });
-
-      console.log(response.data)
    
       if (response.status === 200) {
         const token = response.data.token;

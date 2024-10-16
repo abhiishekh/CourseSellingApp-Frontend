@@ -1,8 +1,16 @@
 import React from 'react'
 import '../styles/coursecard.css'
 import courseImg from '../assets/course3.jpg'
+import { Link,useNavigate } from 'react-router-dom'
 const CourseCard = (props) => {
     
+  const navigate = useNavigate()
+
+  const handleBuyNow =()=>{
+    localStorage.setItem('courseId',props.courseId)
+    console.log(props.courseId)
+    navigate('/buycourse')
+  }
 
   return (
     <>
@@ -17,7 +25,7 @@ const CourseCard = (props) => {
             <h3>{props.price}</h3>
             </div>
             <p>{props.desc}</p>
-            <button>Buy Now</button>
+            <button onClick={handleBuyNow}>Buy Now</button>
           </div>
         </div>
       </div>

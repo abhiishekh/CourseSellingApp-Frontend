@@ -25,6 +25,7 @@ const MyCourses = () => {
                     }
                 });
                 // Check if the response is okay
+                console.log(response)
                 if (response.status === 200) {
                     setData(response.data.arr || []); // Assuming the response contains an array under 'arr'
                 } else {
@@ -39,10 +40,11 @@ const MyCourses = () => {
     return (
         <div className='body'>
             {data.length > 0 ?
-                (data.map((msg, _id) => (
+                (data.map((msg) => (
 
                     <CourseCard
                         key={msg._id}
+                        courseId={msg._id}
                         image={myimg}
                         title={msg.title}
                         price={msg.price}

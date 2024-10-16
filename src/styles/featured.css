@@ -6,7 +6,7 @@
 .featured-container{
     background-color: #243642;
     height: 100%;
-    width: 100vw;
+    width: 100%;
     padding: 0 5rem;
     display: flex;
     flex-direction: column;

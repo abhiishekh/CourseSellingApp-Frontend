@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.items{
+    /* width: 50%;
+    height: 100%; */
+    background-color: rgb(22, 65, 105);
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: .8rem;
+    gap: 2rem;
+
+}
+.user-image{
+    width: 200px;
+    height: 130px;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+.user-image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.title-button{
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+

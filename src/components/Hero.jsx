@@ -8,10 +8,17 @@ const Hero = () => {
   return (
     <>
       <div className="container">
-        <a href="#">
-        <div className="image">
+        {/* <a href="#"> */}
+        <div className="hero">
+          <div className="left">
+            <h1>Learn skills that matter.<br/> Build a better future.</h1>
+            <p></p>
+          </div>
+          <div className="right">
+            <img src="https://allen.in/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdpzpn3dkw%2Fimage%2Fupload%2Fv1707310904%2Fc_2_ix0igr.webp&w=640&q=75" alt="" />
+          </div>
             </div>
-        </a>
+        {/* </a> */}
         
       </div>
       <Featured/>

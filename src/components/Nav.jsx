@@ -11,7 +11,6 @@ const Nav = () => {
     const token = localStorage.getItem("token");
     const isCreator = localStorage.getItem("isCreator")
     setIsCreator(isCreator === 'true')
-    console.log(isCreator)
     setAuth(!!token); // Convert token presence to boolean
   }, []);
 
@@ -22,6 +21,13 @@ const Nav = () => {
     setAuth(false); // Update local state
     navigate('/'); // Navigate to signin after logout
   };
+  const handleAuth = () =>{
+    const token = localStorage.getItem('token')
+    if(!token){
+      alert("you are not signed in")
+      return
+    }
+  }
 
   return (
     <div className="nav">
@@ -30,9 +36,10 @@ const Nav = () => {
       </div>
       <div className="links">
         <Link to="/">Home</Link>
-        <Link to="/courses">Courses</Link>
-        {auth && <Link to="/MyCourses">MyCourses</Link>} {/* Only show if authenticated */}
-        {/* <Link to="/about">About</Link> */}
+        { !isCreator && <Link to="/tutor">Tutors</Link>}
+        {(auth && <Link to="/MyCourses">MyCourses</Link>)} {/* Only show if authenticated */}
+
+        {isCreator && <Link to="/creactedcourses" onClick={handleAuth}>Created-Courses</Link>}
       </div>
       <div className="btns">
       <div className="signin">

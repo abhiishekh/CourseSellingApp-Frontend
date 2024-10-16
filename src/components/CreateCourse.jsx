@@ -22,20 +22,33 @@ const CreateCourse = () => {
     e.preventDefault()
 
     try {
+
+      const token = localStorage.getItem('token')
+      if(!token){
+        alert('Your are not signed in')
+       
+        navigate('/signin')
+      }
+
       const response = await axios.post('http://localhost:3000/api/v1/course',{
         title:formData.title,
         description:formData.description,
         price:formData.price,
         isPublished:formData.checkbox
+      },
+      {
+        headers:{
+          token:token
+        }
       });
 
       if(response){
-        console.log("signup successful:", response.data);
-        navigate('/')
+        navigate('/creactedcourses')
       }else{
-        console.log('data not submitted')
+        console.log("course not created")
       }
     } catch (err) {
+    
       console.log(err)
     }
   }
@@ -91,7 +104,7 @@ const CreateCourse = () => {
             onChange={handleChange}
           />
         </div>
-        <button>Create Course</button>
+        <button onClick={handleSubmit}>Create Course</button>
       </form>
       </div>
      {/* </div> */}
