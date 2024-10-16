@@ -3,6 +3,7 @@ import '../styles/mycourses.css'
 import axios from 'axios'
 import CourseCard from './CourseCard'
 import myimg from '../assets/course2.jpg'
+import CourseView from './CourseView'
 const MyCourses = () => {
 
     // getting the data from mycourses server for mycourses page
@@ -42,7 +43,7 @@ const MyCourses = () => {
             {data.length > 0 ?
                 (data.map((msg) => (
 
-                    <CourseCard
+                    <CourseView
                         key={msg._id}
                         courseId={msg._id}
                         image={myimg}

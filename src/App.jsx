@@ -12,6 +12,7 @@ import CreatedCourses from './components/CreatedCourses'
 import Tutor from './components/Tutor'
 import BuyCourse from './components/BuyCourse'
 import Footer from './components/Footer'
+import TutorDetails from './components/TutorDetails'
 
 const App = () => {
   const isAuth = !!localStorage.getItem('token');
@@ -27,6 +28,7 @@ const App = () => {
      <Route path='/signin' element={<Signin/>}/>
      <Route path='/createcourse' element={isAuth && isCreator? <CreateCourse /> : <Navigate to='/'/>}/>
      <Route path='/creactedcourses' element={<CreatedCourses/>}/>
+     <Route path='/tutordetails' element={<TutorDetails/>}/>
      <Route path='/buycourse' element={<BuyCourse/>}/>
      <Route path='/MyCourses' element={
       <ProtectRoute>

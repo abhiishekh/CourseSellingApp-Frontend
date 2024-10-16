@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.tutor-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.tutor-cards{
+    display: flex;
+    margin: 1rem 0 5rem 0 ;
+    gap: 1rem;
+    padding: 2rem;
+}

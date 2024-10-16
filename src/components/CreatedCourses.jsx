@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import CourseCard from './CourseCard';
 import '../styles/createdcourses.css';
 import courseImg from '../assets/course3.jpg'
+import CourseView from './CourseView';
 
 const CreatedCourses = () => {
     const [formData, setFormData] = useState([]);
@@ -44,7 +45,7 @@ const CreatedCourses = () => {
             <div className="created">
                 {formData.length > 0 ? (
                     formData.map((msg) => (
-                        <CourseCard
+                        <CourseView
                             key={msg._id}
                             title={msg.title}
                             desc={msg.description}

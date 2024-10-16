@@ -2,45 +2,37 @@ import React, { useState } from 'react'
 import '../styles/usercard.css'
 import userImg from '../assets/user.jpeg'
 import { Link } from 'react-router-dom'
+import TutorDetails from './TutorDetails'
+import courseImg from '../assets/course3.jpg'
+import CourseCard from './CourseCard'
 const UserCard = (props) => {
-    const [formdata,setformData] = useState({created_courses:[]})
-
+    const [formdata,setformData] = useState([])
+    const [click,setClick] = useState(false)
 
     const handleUser = async () =>{
 
         const tutorId = props.tutorId
-        console.log(tutorId)
-        localStorage.setItem('tutorid',tutorId)
-        const response = await fetch('http://localhost:3000/api/v1/user',{
-            headers:{
-                tutorid:tutorId
-            }
-        })
+        const response = await fetch(`http://localhost:3000/api/v1/tutor-courses/${tutorId}`)
         if(!response.ok){
            console.log("user data not found ")
            return
         }
-        const data = await response.json()
-        const result = data.response;
-        console.log(result)
-        setformData(result)
+
+        const result = await response.json()
+        const data = result.data;
+        // console.log(data)
+        setformData(data)
+        setClick(click=>!click)
+     
         
-        if (formdata.created_courses && formdata.created_courses.length > 0) {
-            // Print each created course
-            formdata.created_courses.forEach(course => {
-                console.log(course); // You can customize what to print here
-            });
-        } else {
-            console.log("No created courses found.");
-        }
     }
-    // const handleButton = () => {
-    // };
-    // // console.log(formdata)
+
+    // console.log(formdata)
 
 
     return (
         <>
+        <div className="user-container">
             <div className="items" onClick={handleUser}>
                 <div className="user-image">
                     <img src={userImg} alt="user image" />
@@ -52,6 +44,20 @@ const UserCard = (props) => {
                 </div>
             </div>
             {/* <button onClick={handleButton}>click</button> */}
+            <div className='tutor-course-details'>
+            {click && formdata.map((course)=>(
+                <CourseCard
+                key = {course._id}
+                courseId ={course._id}
+                title ={course.title}
+                desc={course.description}
+                price={course.price}
+                image={courseImg}
+                />
+            ))
+            }
+            </div>
+            </div>
         </>
     )
 }

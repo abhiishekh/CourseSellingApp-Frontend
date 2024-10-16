@@ -36,7 +36,7 @@ const Nav = () => {
       </div>
       <div className="links">
         <Link to="/">Home</Link>
-        { !isCreator && <Link to="/tutor">Tutors</Link>}
+        { <Link to="/tutor">Tutors</Link>}
         {(auth && <Link to="/MyCourses">MyCourses</Link>)} {/* Only show if authenticated */}
 
         {isCreator && <Link to="/creactedcourses" onClick={handleAuth}>Created-Courses</Link>}

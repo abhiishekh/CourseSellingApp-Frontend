@@ -18,6 +18,9 @@
     object-position: center;
 
 }
+.title-price h2{
+    text-transform: capitalize;
+}
 .cover{
     position: absolute;
     top: 0;

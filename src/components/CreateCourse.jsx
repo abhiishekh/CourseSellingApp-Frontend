@@ -95,6 +95,8 @@ const CreateCourse = () => {
           />
         </div>
         <div className="form-group">
+          <div className="check">
+
           <label htmlFor="checkbox">Is this public Course</label>
           <input
             type="Checkbox"
@@ -103,6 +105,7 @@ const CreateCourse = () => {
             value={formData.checkbox}
             onChange={handleChange}
           />
+          </div>
         </div>
         <button onClick={handleSubmit}>Create Course</button>
       </form>

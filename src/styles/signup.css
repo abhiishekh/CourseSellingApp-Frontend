@@ -6,7 +6,9 @@ body {
 }
 
 .signup-container {
+  width: 400px;
   max-width: 400px;
+  height: 100%;
   margin: 3rem auto 0 auto;
   padding: 20px;
   border: 1px solid #ccc;

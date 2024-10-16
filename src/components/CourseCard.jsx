@@ -1,6 +1,5 @@
 import React from 'react'
 import '../styles/coursecard.css'
-import courseImg from '../assets/course3.jpg'
 import { Link,useNavigate } from 'react-router-dom'
 const CourseCard = (props) => {
     
