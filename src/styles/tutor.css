@@ -6,12 +6,24 @@
 .tutor-container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    height: 100vh;
+
 }
 .tutor-cards{
+    width: 100%;
     display: flex;
     margin: 1rem 0 5rem 0 ;
     gap: 1rem;
     padding: 2rem;
+}
+@media (max-width:412px){
+    .tutor-container{
+        height: 100%;
+    }
+    .tutor-cards{
+        flex-direction: column;
+        padding: .5rem;
+    }
 }

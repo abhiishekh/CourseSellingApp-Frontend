@@ -51,4 +51,11 @@
     /* background-color: red; */
 }
 
+@media (max-width:412px){
+    .tutor-course-details{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 

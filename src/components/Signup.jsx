@@ -78,6 +78,7 @@ const Signup = () => {
           />
         </div>
         <div className="form-group">
+          <div className="check">
           <label htmlFor="checkbox">Are you a creator</label>
           <input
             type="Checkbox"
@@ -86,6 +87,7 @@ const Signup = () => {
             value={formData.checkbox}
             onChange={handleChange}
           />
+          </div>
         </div>
         <button type="submit">Sign Up</button>
       </form>

@@ -1,5 +1,5 @@
 body {
-  background-color: #243642; /* Set the body background color */
+  /* background-color: #243642;  */
   
   margin: 0; /* Remove default body margin */
   font-family: Arial, sans-serif; /* Optional: Set a default font */
@@ -42,7 +42,7 @@ input {
 button {
   width: 100%;
   padding: 10px;
-  background-color: #28a745;
+  /* background-color: #28a745; */
   color: white;
   border: none;
   border-radius: 4px;
@@ -50,6 +50,4 @@ button {
   font-size: 16px;
 }
 
-button:hover {
-  background-color: #218838;
-}
+

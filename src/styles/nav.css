@@ -10,11 +10,16 @@
    align-items: center;
    width: 100%;
    height: 100%;
-   background-color: #387478;
+   background-color: #003C43;
    padding: .5rem 5rem;
    position: sticky;
    top: 0;
    z-index: 1000;
+}
+@media (max-width:412px){
+    .nav{
+        padding: .5rem;
+    }
 }
 .logo h1{
     color: #E2F1E7;
