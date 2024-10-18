@@ -29,8 +29,8 @@ const CreateCourse = () => {
        
         navigate('/signin')
       }
-
-      const response = await axios.post('http://localhost:3000/api/v1/course',{
+//made changes
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/course`,{
         title:formData.title,
         description:formData.description,
         price:formData.price,

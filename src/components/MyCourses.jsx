@@ -20,7 +20,8 @@ const MyCourses = () => {
                     console.log("you are not authorized")
                     return;
                 }
-                const response = await axios.get('http://localhost:3000/api/v1/my-courses', {
+                // made changes 
+                const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/my-courses`, {
                     headers: {
                         token: token
                     }

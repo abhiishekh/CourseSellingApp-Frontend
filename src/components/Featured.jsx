@@ -9,7 +9,8 @@ const Featured = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/v1/featured-courses');
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/featured-courses`)
+                // const response = await fetch('http://localhost:3000/api/v1/featured-courses');
 
                 // Check if the response is okay before proceeding
                 if (!response.ok) {

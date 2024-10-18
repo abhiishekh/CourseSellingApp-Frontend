@@ -17,8 +17,8 @@ const CreatedCourses = () => {
                     alert('your are not signed in')
                     return; // Handle missing token appropriately
                 }
-
-                const response = await fetch('http://localhost:3000/api/v1/courses', {
+// made changes 
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/courses`, {
                     headers: {
                         token: token,
                     },

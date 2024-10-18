@@ -12,7 +12,8 @@ const UserCard = (props) => {
     const handleUser = async () =>{
 
         const tutorId = props.tutorId
-        const response = await fetch(`http://localhost:3000/api/v1/tutor-courses/${tutorId}`)
+        // made changes
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/tutor-courses/${tutorId}`)
         if(!response.ok){
            console.log("user data not found ")
            return

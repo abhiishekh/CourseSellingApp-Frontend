@@ -11,7 +11,8 @@ const Tutor = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/v1/tutors');
+                // made changes
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/tutors`);
 
                 // Check if the response is okay before proceeding
                 if (!response.ok) {

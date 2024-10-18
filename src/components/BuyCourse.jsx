@@ -24,8 +24,8 @@ const BuyCourse = () => {
                     console.log("courseid not found")
                     return;
                 }
-                
-                const respones = await fetch(`http://localhost:3000/api/v1/course/${courseId}`)
+                // here made changes in backend url change
+                const respones = await fetch(`${import.meta.env.VITE_BACKEND_URL}/course/${courseId}`)
                 if(!respones.ok){
                     throw new Error(`Error fetching course: ${respones.status}`)
                 }
@@ -46,8 +46,10 @@ const BuyCourse = () => {
     async function handlePayNow(){
         const token = localStorage.getItem('token')
         const courseId = localStorage.getItem('courseId')
+
         
-       const response = await axios.post(`http://localhost:3000/api/v1/purchase/${courseId}`,{},{
+        //here made changes in backedn url
+       const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/purchase/${courseId}`,{},{
         headers:{
             token :token
         }
