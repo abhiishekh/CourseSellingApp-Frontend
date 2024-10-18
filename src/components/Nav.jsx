@@ -76,7 +76,7 @@ const Nav = () => {
           <Link to="/" onClick={handletoggle}>Home</Link>
           <Link to="/tutor" onClick={handletoggle}>Tutors</Link>
           {auth && <Link to="/MyCourses" onClick={handletoggle}>MyCourses</Link>}
-          {isCreator && <Link to="/createdcourses" onClick={handleAuth}>Created-Courses</Link>}
+          {isCreator && <Link to="/createdcourses" onClick={[handletoggle,handleAuth]}>Created-Courses</Link>}
         </div>
 
 
