@@ -29,12 +29,12 @@ const Signin = () => {
       if (response.status === 200) {
         const token = response.data.token;
         const isCreator = response.data.isCreator; // Correctly accessing isCreator
-        console.log("Is Creator:", isCreator);
+        // console.log("Is Creator:", isCreator);
         // console.log(isCreator)
         localStorage.setItem('token',token)
         localStorage.setItem('isCreator',isCreator)
   
-        console.log("Signin successful:", response.data);
+        // console.log("Signin successful:", response.data);
 
         navigate('/'); // Navigate on successful signup
       } else {

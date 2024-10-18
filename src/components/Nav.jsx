@@ -1,17 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../styles/nav.css';
 import { Link, useNavigate } from 'react-router-dom';
+import { IoMenu } from "react-icons/io5";
 
 const Nav = () => {
   const [auth, setAuth] = useState(false);
-  const [isCreator,setIsCreator] = useState(false)
+  const [isCreator, setIsCreator] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const navigate = useNavigate();
+  const authRef = useRef(false)
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    const isCreator = localStorage.getItem("isCreator")
-    setIsCreator(isCreator === 'true')
-    setAuth(!!token); // Convert token presence to boolean
+    const updateAuthState = () => {
+      const token = localStorage.getItem("token");
+      const isCreator = localStorage.getItem("isCreator") === 'true';
+      setAuth(!!token);
+      setIsCreator(isCreator);
+    };
+
+    // Initial state update
+    updateAuthState();
+
+    // Update state on storage change
+    window.addEventListener('storage', updateAuthState);
+    
+    return () => {
+      window.removeEventListener('storage', updateAuthState);
+    };
   }, []);
 
   const handleLogout = () => {
@@ -19,14 +34,19 @@ const Nav = () => {
     localStorage.removeItem("isCreator")
     setIsCreator(isCreator === 'false')
     setAuth(false); // Update local state
+    // authRef.current = false  
     navigate('/'); // Navigate to signin after logout
   };
-  const handleAuth = () =>{
+  const handleAuth = () => {
     const token = localStorage.getItem('token')
-    if(!token){
+    if (!token) {
       alert("you are not signed in")
       return
     }
+  }
+
+  const handletoggle = () => {
+    setMenuOpen(!menuOpen)
   }
 
   return (
@@ -36,27 +56,74 @@ const Nav = () => {
       </div>
       <div className="links">
         <Link to="/">Home</Link>
-        { <Link to="/tutor">Tutors</Link>}
-        {(auth && <Link to="/MyCourses">MyCourses</Link>)} {/* Only show if authenticated */}
+        {<Link to="/tutor">Tutors</Link>}
+        {(auth && <Link to="/MyCourses">MyCourses</Link>)}
 
         {isCreator && <Link to="/creactedcourses" onClick={handleAuth}>Created-Courses</Link>}
       </div>
+
+
+      {/* // responsive line */}
+      <div className="responsive">
+        <div className="menu" onClick={handletoggle}>
+          <IoMenu />
+        </div>
+      </div>
+
+      {/* // side menu  */}
+      <div className={`side-menu ${menuOpen ? 'open' : ''}`}>
+        <div className="menu-links">
+          <Link to="/" onClick={handletoggle}>Home</Link>
+          <Link to="/tutor" onClick={handletoggle}>Tutors</Link>
+          {auth && <Link to="/MyCourses" onClick={handletoggle}>MyCourses</Link>}
+          {isCreator && <Link to="/createdcourses" onClick={handleAuth}>Created-Courses</Link>}
+        </div>
+
+
+
+        <div className="btns" style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          paddingLeft: '0.5rem'
+        }}>
+          <div className="signin">
+            {isCreator ? (
+              <Link to='/createcourse' onClick={handletoggle}><button>Create-Course</button></Link>
+            ) : (
+              null
+            )}
+          </div>
+          <div className="signin">
+            {auth ? (
+              <button onClick={handleLogout} >Logout</button>
+            ) : (
+              <Link to="/signin" onClick={handletoggle}><button>Signin</button></Link>
+            )}
+          </div>
+
+
+        </div>
+      </div>
+
+      {/* // other btn line */}
       <div className="btns">
-      <div className="signin">
-        {isCreator ? (
-          <Link to='/createcourse'><button>Create-Course</button></Link>
-        ) : (
-          null
-        )}
-      </div>
-      <div className="signin">
-        {auth ? (
-          <button onClick={handleLogout}>Logout</button>
-        ) : (
-          <Link to="/signin"><button>Signin</button></Link>
-        )}
-      </div>
-     
+
+        <div className="signin">
+          {isCreator ? (
+            <Link to='/createcourse'><button>Create-Course</button></Link>
+          ) : (
+            null
+          )}
+        </div>
+        <div className="signin">
+          {auth ? (
+            <button onClick={handleLogout}>Logout</button>
+          ) : (
+            <Link to="/signin"><button>Signin</button></Link>
+          )}
+        </div>
+
 
       </div>
     </div>

@@ -13,14 +13,23 @@
    background-color: #003C43;
    padding: .5rem 5rem;
    position: sticky;
-   top: 0;
-   z-index: 1000;
+   top: -1px;
+   z-index: 999;
 }
-@media (max-width:412px){
-    .nav{
-        padding: .5rem;
-    }
+.responsive {
+    display: none;
 }
+
+.menu{
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+.side-menu{
+    display: none;
+}
+
+
 .logo h1{
     color: #E2F1E7;
     font-size: 2.5rem;
@@ -42,4 +51,49 @@
 }
 .signin{
     color: #E2F1E7;
+}
+
+
+@media (max-width:412px){
+    .nav{
+        padding: .5rem;
+    }
+    .responsive{
+        display: block;
+    }
+   
+    .side-menu {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: -250px; /* Hidden off-screen */
+        width: 150px;
+        height: 100%;
+        background-color: #1b4b5e;
+        transition: left 0.3s ease;
+        z-index: 999;
+    }
+    .side-menu.open {
+        left: 0; /* Slide in */
+    }
+    .menu-links {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        padding: .5rem;
+        gap: 1rem;
+    }
+    
+    .menu-links a {
+        color: #000a04;
+        text-decoration: none;
+        font-size: 1.5rem;
+    }
+    .btns{
+        display: none;
+    }
+    .nav .links{
+        display: none;
+    }
 }

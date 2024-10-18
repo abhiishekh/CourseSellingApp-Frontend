@@ -7,9 +7,8 @@ body {
 
 .signup-container {
   width: 400px;
-  max-width: 400px;
   height: 100%;
-  margin: 3rem auto 0 auto;
+  margin: 3rem auto 2rem auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -38,6 +37,24 @@ input {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+.check{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.check label{
+  /* display: contents; */
+  /* margin-left: 10px; */
+  width: 50%;
+  margin-bottom: 0;
+}
+.check input{
+  width: 50%;
+  text-align: left;
+}
+
 
 button {
   width: 100%;
@@ -48,6 +65,13 @@ button {
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+}
+
+@media (max-width:412px){
+  .signup-container{
+    width: 300px;
+    margin-bottom: 20px;
+  }
 }
 
 

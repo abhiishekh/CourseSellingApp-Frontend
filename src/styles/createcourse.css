@@ -1,8 +1,8 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+} */
 
 
 .course-container{
@@ -17,23 +17,6 @@
     background-color: #f9f9f9;
 
 }
-.check{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.check label{
-  /* display: contents; */
-  /* margin-left: 10px; */
-  width: 50%;
-  margin-bottom: 0;
-}
-.check input{
-  width: 50%;
-  text-align: left;
-}
 
 h2 {
     text-align: center;
@@ -42,7 +25,7 @@ h2 {
   
   .form-group {
     margin-bottom: 15px;
-    width: 100%;
+    /* width: 100%; */
   }
   
   label {
@@ -67,4 +50,10 @@ h2 {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+  }
+  @media (max-width:412px){
+    .course-container{
+      min-width: 300px;
+      margin-bottom: 20px;
+    }
   }

@@ -4,11 +4,13 @@
     box-sizing: border-box;
 }
 .tutor-container{
+    /* background-color: gold; */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     height: 100vh;
+    padding: 0 1rem;
 
 }
 .tutor-cards{
@@ -17,13 +19,19 @@
     margin: 1rem 0 5rem 0 ;
     gap: 1rem;
     padding: 2rem;
+    /* background-color: red; */
+    align-items: center;
+    justify-content: center;
 }
 @media (max-width:412px){
     .tutor-container{
+        width: 100%;
         height: 100%;
+        padding: 0 .5rem;
     }
     .tutor-cards{
         flex-direction: column;
         padding: .5rem;
+        align-items: center;
     }
 }
