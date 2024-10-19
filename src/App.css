@@ -4,9 +4,17 @@
     flex-direction: column;
     min-height: 100vh;
 }
-button{
-    background-color: #059212;
-}
+button {
+    width: 100%;
+    padding: .5rem;
+    background-color: #038f23;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
 button:hover {
     background-color: #057e1f;
   }

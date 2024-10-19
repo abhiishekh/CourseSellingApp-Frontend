@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import '../styles/usercard.css'
-import userImg from '../assets/user.jpeg'
+import userImg from '../assets/teacher.jpg'
 import { Link } from 'react-router-dom'
 import TutorDetails from './TutorDetails'
 import courseImg from '../assets/course3.jpg'

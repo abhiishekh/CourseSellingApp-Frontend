@@ -15,7 +15,7 @@ const Hero = () => {
             <p></p>
           </div>
           <div className="right">
-            <img src="https://allen.in/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdpzpn3dkw%2Fimage%2Fupload%2Fv1707310904%2Fc_2_ix0igr.webp&w=640&q=75" alt="" />
+            <img src="https://allen.in/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdpzpn3dkw%2Fimage%2Fupload%2Fv1729249760%2Fu_c_1_t79muq.webp&w=640&q=75" alt="" />
           </div>
             </div>
         {/* </a> */}

@@ -40,6 +40,8 @@ const MyCourses = () => {
         fetchData()
     }, [])
     return (
+        <>
+            <h1 style={{color:'#fff',textAlign:'center', marginBottom:'2rem'}}>Your Purchased Courses</h1>
         <div className='body'>
             {data.length > 0 ?
                 (data.map((msg) => (
@@ -57,6 +59,7 @@ const MyCourses = () => {
                 (<p>No Purchase Yet</p>)
             }
         </div>
+        </>
     )
 }
 

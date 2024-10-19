@@ -13,7 +13,10 @@
     align-items: center;
    
 }
+
 .cards{
+    height: 100%;
+    width: 100%;
     margin-top: 2rem;
     display: flex;
     gap: 1.5rem;
@@ -22,8 +25,9 @@
     justify-content: center;
     margin-bottom: 4rem;
 }
+
 .heading h1{
-    font-size: 2.5rem;
+    font-size: 6vw;
     color: white;
 }
 @media (max-width:412px){

@@ -21,7 +21,7 @@ const CourseCard = (props) => {
             <div className="title-price">
 
             <h2>{props.title}</h2>
-            <h3>{props.price}</h3>
+            <h3>{`${props.price}.00`}</h3>
             </div>
             <p>{props.desc}</p>
             <button onClick={handleBuyNow}>Buy Now</button>

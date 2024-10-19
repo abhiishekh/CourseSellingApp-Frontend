@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css'
 import {BrowserRouter, Routes,Route, Navigate} from 'react-router-dom'
+import { AuthProvider } from './ContextApi/AuthContext'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import Signup from './components/Signup'
@@ -20,6 +21,7 @@ const App = () => {
   return (
   
     <BrowserRouter>
+    <AuthProvider>
     <Nav/>
     <Routes>
      <Route path="/" element={<Hero/>}/>
@@ -38,6 +40,7 @@ const App = () => {
 
       </Routes>
       <Footer/>
+      </AuthProvider>
       </BrowserRouter>
 
   )

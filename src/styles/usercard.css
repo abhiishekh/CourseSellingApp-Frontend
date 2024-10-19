@@ -4,14 +4,16 @@
     box-sizing: border-box;
 }
 .user-container{
-    width: 400px;
+    width: auto;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 1rem;
  
 }
 .items{
-    width: 100%;
+    width: 400px;
     background-color: rgb(22, 65, 105);
     display: flex;
     align-items: center;
@@ -45,7 +47,7 @@
     flex-direction:column;
     flex-wrap: wrap;
     word-wrap: break-word;
-    margin-left: 1rem;
+    /* margin-left: 1rem; */
     padding: .5rem;
     overflow: hidden;
 }
@@ -57,18 +59,25 @@
 } */
 .tutor-course-details{
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
     gap: 1rem;
     /* background-color: red; */
 }
 
-@media (max-width:412px){
+@media (max-width:412px),(max-width:600px){
+    .user-container{
+        width: 100%;
+    }
     .tutor-course-details{
         flex-direction: column;
         align-items: center;
     }
     .items{
+        width: 100%;
         gap: 1rem;
     }
 }

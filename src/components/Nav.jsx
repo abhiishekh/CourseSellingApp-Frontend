@@ -8,25 +8,15 @@ const Nav = () => {
   const [isCreator, setIsCreator] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const navigate = useNavigate();
-  const authRef = useRef(false)
 
   useEffect(() => {
-    const updateAuthState = () => {
+
       const token = localStorage.getItem("token");
       const isCreator = localStorage.getItem("isCreator") === 'true';
       setAuth(!!token);
       setIsCreator(isCreator);
-    };
+  
 
-    // Initial state update
-    updateAuthState();
-
-    // Update state on storage change
-    window.addEventListener('storage', updateAuthState);
-    
-    return () => {
-      window.removeEventListener('storage', updateAuthState);
-    };
   }, []);
 
   const handleLogout = () => {
@@ -56,7 +46,7 @@ const Nav = () => {
       </div>
       <div className="links">
         <Link to="/">Home</Link>
-        {<Link to="/tutor">Tutors</Link>}
+        {!isCreator && <Link to="/tutor">Tutors</Link>}
         {(auth && <Link to="/MyCourses">MyCourses</Link>)}
 
         {isCreator && <Link to="/creactedcourses" onClick={handleAuth}>Created-Courses</Link>}
@@ -74,13 +64,10 @@ const Nav = () => {
       <div className={`side-menu ${menuOpen ? 'open' : ''}`}>
         <div className="menu-links">
           <Link to="/" onClick={handletoggle}>Home</Link>
-          <Link to="/tutor" onClick={handletoggle}>Tutors</Link>
+          {!isCreator && <Link to="/tutor" onClick={handletoggle}>Tutors</Link>}
           {auth && <Link to="/MyCourses" onClick={handletoggle}>MyCourses</Link>}
-          {isCreator && <Link to="/createdcourses" onClick={[handletoggle,handleAuth]}>Created-Courses</Link>}
+          {isCreator && <Link to="/creactedcourses" onClick={handletoggle}>Created-Courses</Link>}
         </div>
-
-
-
         <div className="btns" style={{
           display: 'flex',
           flexDirection: 'column',
@@ -96,7 +83,7 @@ const Nav = () => {
           </div>
           <div className="signin">
             {auth ? (
-              <button onClick={handleLogout} >Logout</button>
+              <Link to='/'  onClick={handletoggle}><button onClick= {handleLogout} >Logout</button></Link>
             ) : (
               <Link to="/signin" onClick={handletoggle}><button>Signin</button></Link>
             )}

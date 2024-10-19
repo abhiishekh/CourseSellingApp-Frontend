@@ -13,7 +13,7 @@ const CourseView = (props) => {
             <div className="card-items">
                 <div className="title-price">
                     <h2>{props.title}</h2>
-                    <p>{props.price}</p>
+                    <p>{`${props.price}.00`}</p>
                 </div>
                 <p>{props.desc}</p>
                 <button onClick={handleView}>View Course</button>

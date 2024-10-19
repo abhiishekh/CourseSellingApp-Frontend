@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import '../styles/signup.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -11,6 +11,7 @@ const Signup = () => {
     password: '',
     checkbox:false
   });
+  const [Error, setError] = useState('')
 
   const handleChange = (e) => {
     const { name,type, checked, value } = e.target;
@@ -19,7 +20,9 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('')
 
+ 
     try {
       // made changes
       const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/signup`, {
@@ -28,12 +31,12 @@ const Signup = () => {
         password: formData.password,
         isCreator:formData.checkbox
       });
-
-      if (response.status === 200) {
+      console.log(response.data.response)
+      if (response.status === 200 && response.data.response) {
         console.log("Signup successful:", response.data);
         navigate('/signin'); // Navigate on successful signup
       } else {
-        console.log("Data not submitted");
+        setError(response.data.error || 'An error occured during signup.')
       }
     } catch (error) {
       console.error("Error during signup:", error);
@@ -89,6 +92,9 @@ const Signup = () => {
           />
           </div>
         </div>
+       {Error && <div className="error">
+          <p style={{color:'red'}}>{Error}</p>
+        </div>}
         <button type="submit">Sign Up</button>
       </form>
     </div>
