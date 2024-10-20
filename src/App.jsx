@@ -22,7 +22,9 @@ const App = () => {
   
     <BrowserRouter>
     <AuthProvider>
+           <ProtectRoute>
     <Nav/>
+              </ProtectRoute>
     <Routes>
      <Route path="/" element={<Hero/>}/>
      <Route path='/tutor' element={<Tutor/>}/>
