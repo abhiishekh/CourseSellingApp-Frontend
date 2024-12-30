@@ -26,7 +26,7 @@ For making API requests to the backend
 ## Features
 - **User-side functionality**:
   - Course browsing
-  - Ourchase functionality
+  - Purchase functionality
   - User authentication (login, registration)
   - Enrollment process
 
