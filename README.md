@@ -2,7 +2,7 @@
 
 ![100xdevs](https://github.com/user-attachments/assets/339db23c-d817-4eda-92c4-fe0a4ffb57df)
 
-A fully functional e-commerce website built with **React**, **Node.js**, **Express**, **MongoDB**, and **State Management**.
+A fully functional 100xdevs clone website built with **React**, **Node.js**, **Express**, **MongoDB**, and **State Management**.
 
 Check out the live demo of the website: [Live website](https://100xdevs-rosy.vercel.app/)
 
@@ -15,7 +15,7 @@ JavaScript runtime for building the backend server
 ### Express: 
 A minimal and flexible Node.js web application framework
 ### MongoDB: 
-NoSQL database for storing product, order, and user data
+NoSQL database for storing course, tutor, and user data
 ### JWT Authentication: 
 For securing API routes and authenticating users
 ### Redux or Context API: 
@@ -34,7 +34,7 @@ For making API requests to the backend
   - **Frontend**: React, React Router, Axios
   - **Backend**: Node.js, Express, JWT Authentication
   - **Database**: MongoDB
-  - **State Management**: Redux or Context API (for managing user state, cart items, etc.)
+  - **State Management**: Redux or Context API (for managing user state, enrollment, etc.)
 
 # Setup Instructions
 
